@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lake Erie Golf Cars &mdash; Online Visibility Benchmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a1628;
+      --bg-card: #101d36;
+      --bg-card-hover: #152444;
+      --primary-dark: #10264D;
+      --primary-light: #1a3a6b;
+      --accent-blue: #2E75F7;
+      --accent-green: #4ADE80;
+      --accent-amber: #FBBF24;
+      --accent-red: #F87171;
+      --accent-cyan: #06B6D4;
+      --accent-purple: #A78BFA;
+      --text-primary: rgba(255,255,255,0.92);
+      --text-secondary: rgba(255,255,255,0.70);
+      --text-muted: rgba(255,255,255,0.45);
+      --text-faint: rgba(255,255,255,0.25);
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(46,117,247,0.25);
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --radius-pill: 20px;
+      --shadow-card: 0 2px 8px rgba(0,0,0,0.25);
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.4);
+      --transition: all 0.2s ease;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+    html { scrollbar-width: thin; scrollbar-color: var(--primary-light) var(--bg); scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg);
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(10,22,40,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46,117,247,0.08);
+      padding: 0 1.5rem;
+    }
+    .header-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-brand {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.85rem;
+      color: var(--text-primary); text-transform: uppercase; letter-spacing: 3px;
+    }
+    .logo-mark {
+      width: 20px; height: 20px; background: var(--accent-blue); border-radius: 3px; flex-shrink: 0;
+    }
+    .logo-sub {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.7rem;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--bg); color: #fff; position: relative; overflow: hidden; margin-top: 56px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(46,117,247,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(46,117,247,0.06) 0%, transparent 50%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content {
+      position: relative; z-index: 1; max-width: 800px; margin: 0 auto;
+      padding: 5rem 2rem 4rem; text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 1rem; background: rgba(46,117,247,0.15);
+      border: 1px solid var(--border-accent); border-radius: var(--radius-pill);
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 600;
+      color: var(--accent-blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800; letter-spacing: 2px; text-transform: uppercase; line-height: 1.15; margin-bottom: 1rem;
+    }
+    .hero h1 span { color: var(--accent-blue); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-secondary);
+      max-width: 620px; margin: 0 auto 2rem; line-height: 1.7;
+    }
+    .hero-meta { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .hero-meta-item {
+      display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted);
+    }
+    .hero-accent {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, rgba(46,117,247,0.6), rgba(46,117,247,0.0));
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: sticky; top: 56px; z-index: 100;
+      background: rgba(10,22,40,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46,117,247,0.08);
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto; display: flex; overflow-x: auto;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav a {
+      display: flex; align-items: center; gap: 0.4rem; padding: 0.85rem 1.1rem;
+      text-decoration: none; color: var(--text-muted);
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 600;
+      white-space: nowrap; letter-spacing: 2px; text-transform: uppercase;
+      border-bottom: 2px solid transparent; transition: var(--transition);
+    }
+    .nav a:hover { color: var(--text-primary); }
+    .nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 3.5rem 0; }
+    .divider { height: 1px; background: linear-gradient(to right, rgba(46,117,247,0.3), rgba(46,117,247,0.0)); }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-header { margin-bottom: 2rem; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--accent-blue);
+      margin-bottom: 0.5rem; padding: 3px 10px;
+      background: rgba(46,117,247,0.15); border-radius: var(--radius-pill);
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.6rem; font-weight: 700;
+      color: var(--text-primary); letter-spacing: 2px; text-transform: uppercase; line-height: 1.25;
+    }
+    .section-desc { color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.95rem; max-width: 700px; }
+
+    /* ===== CARDS ===== */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card); transition: var(--transition);
+    }
+    .card:hover { box-shadow: var(--shadow-hover); }
+    .card-body { padding: 1.5rem; }
+
+    /* ===== CONTENT BLOCKS ===== */
+    .content-block { margin-bottom: 1.5rem; }
+    .content-block .card-body { padding: 1.75rem 2rem; }
+    .content-block h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--text-primary); margin-bottom: 1rem; display: flex; align-items: center;
+      gap: 0.6rem; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .content-block h3::before {
+      content: ''; width: 3px; height: 1.1em;
+      background: var(--accent-blue); border-radius: 2px; flex-shrink: 0;
+    }
+    .content-block p, .content-block li {
+      font-size: 0.92rem; line-height: 1.7; color: var(--text-secondary);
+    }
+    .content-block p { margin-bottom: 0.75rem; }
+    .content-block ul { list-style: none; padding: 0; }
+    .content-block li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; }
+    .content-block li::before {
+      content: ''; position: absolute; left: 0; top: 0.85rem;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--accent-blue);
+    }
+    .content-block li strong { color: var(--text-primary); font-weight: 600; }
+
+    /* ===== CALLOUT ===== */
+    .callout {
+      padding: 1rem 1.25rem; border-radius: var(--radius-btn); margin: 1rem 0;
+      border-left: 3px solid var(--accent-blue); background: rgba(46,117,247,0.08);
+      font-size: 0.88rem; color: var(--text-secondary);
+    }
+    .callout strong { color: var(--text-primary); }
+    .callout.callout-green { border-left-color: var(--accent-green); background: rgba(74,222,128,0.08); }
+    .callout.callout-red { border-left-color: var(--accent-red); background: rgba(248,113,113,0.08); }
+    .callout.callout-amber { border-left-color: var(--accent-amber); background: rgba(251,191,36,0.08); }
+
+    /* ===== TABLES ===== */
+    .data-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .data-table th {
+      padding: 0.6rem 1rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem;
+      font-weight: 600; color: var(--text-muted); text-align: left; text-transform: uppercase;
+      letter-spacing: 2px; background: var(--primary-dark); border-bottom: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+    .data-table tr:hover td { background: var(--bg-card-hover); }
+    .data-table .num { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--accent-blue); }
+    .data-table .num-green { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--accent-green); }
+    .data-table .num-red { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--accent-red); }
+    .data-table .num-amber { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--accent-amber); }
+    .data-table .highlight { color: var(--accent-blue); font-weight: 600; }
+    .data-table .label { color: var(--text-primary); font-weight: 600; }
+    .data-table .row-total td { border-top: 2px solid var(--border-accent); font-weight: 600; }
+    .data-table .row-total .label { color: var(--accent-blue); }
+    .data-table .muted-row td { color: var(--text-muted); }
+
+    /* ===== STAT GRID ===== */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .stat-card {
+      background: var(--primary-dark); border: 1px solid var(--border);
+      border-radius: var(--radius-card); padding: 1.5rem; text-align: center;
+    }
+    .stat-number {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800;
+      color: var(--accent-blue); letter-spacing: 1px; line-height: 1;
+    }
+    .stat-number.green { color: var(--accent-green); }
+    .stat-number.red { color: var(--accent-red); }
+    .stat-number.amber { color: var(--accent-amber); }
+    .stat-label {
+      font-size: 0.78rem; color: var(--text-muted); margin-top: 0.4rem;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+
+    /* ===== NUMBERED LIST ===== */
+    .numbered-list { list-style: none; padding: 0; counter-reset: item; }
+    .numbered-list li {
+      padding: 1rem 1rem 1rem 3rem; position: relative; margin-bottom: 0.75rem;
+      background: var(--primary-dark); border: 1px solid var(--border); border-radius: var(--radius-btn);
+      font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;
+    }
+    .numbered-list li::before {
+      counter-increment: item;
+      content: counter(item);
+      position: absolute; left: 0; top: 0; bottom: 0; width: 2.2rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.9rem;
+      color: var(--accent-blue); background: rgba(46,117,247,0.1);
+      border-right: 1px solid var(--border); border-radius: var(--radius-btn) 0 0 var(--radius-btn);
+    }
+    .numbered-list li strong { color: var(--text-primary); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary-dark); border-top: 1px solid rgba(46,117,247,0.08);
+      padding: 2.5rem 1.5rem; text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 0.9rem;
+      color: var(--accent-blue); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.5rem;
+    }
+    footer p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.7; }
+
+    /* ===== ANIMATIONS ===== */
+    .animate-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .data-table { font-size: 0.8rem; }
+      .data-table th, .data-table td { padding: 0.4rem 0.6rem; }
+      .content-block .card-body { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== FIXED HEADER ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-brand">Mileage</span>
+      <div class="logo-mark"></div>
+    </div>
+    <span class="logo-sub">Online Visibility Benchmark</span>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Confidential &mdash; Prepared Exclusively for LEGC</div>
+    <h1>Online <span>Visibility</span><br>Benchmark</h1>
+    <p class="hero-sub">Lake Erie Golf Cars &mdash; A full audit of site analytics, Google Ads, and search visibility. Data-driven findings with actionable recommendations.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">Prepared by Mileage Design</div>
+      <div class="hero-meta-item">|</div>
+      <div class="hero-meta-item">March 2026</div>
+      <div class="hero-meta-item">|</div>
+      <div class="hero-meta-item">Dan Connor &amp; Nick Reif, Owners</div>
+    </div>
+  </div>
+  <div class="hero-accent"></div>
+</div>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#summary">Summary</a>
+    <a href="#findings">Findings</a>
+    <a href="#analytics">Analytics</a>
+    <a href="#conversions">Conversions</a>
+    <a href="#channels">Channels</a>
+    <a href="#mobile">Mobile</a>
+    <a href="#pages">Pages</a>
+    <a href="#blog">Blog</a>
+    <a href="#ads-audit">Ads Audit</a>
+    <a href="#campaigns">Campaigns</a>
+    <a href="#seo">SEO</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ===== EXECUTIVE SUMMARY ===== -->
+<section id="summary" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">01 &mdash; Executive Summary</div>
+    <h2 class="section-title">Lake Erie Golf Cars</h2>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>The Demand Is Real</h3>
+      <p>Over 2,100 people per year reach out through the website to buy golf carts, request parts, or schedule service. The demand is there &mdash; sales, parts, and service all coming through the site.</p>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>What's Getting in the Way</h3>
+      <p>The measurement system is reporting nearly double the conversions that are happening, so Google's algorithms are optimizing against the wrong actions. The highest-traffic organic content attracts non-buyers. Buyer-intent keywords sit on page 2&ndash;6 of Google. Paid social produces roughly 26 conversions from 5,000 sessions.</p>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>The Blind Spots</h3>
+      <p>56% of Google Ads conversions aren't form submissions. Phone calls &mdash; likely a significant channel for a dealership with two showrooms &mdash; aren't tracked at all. 58% of traffic arrives on mobile, which converts at less than half the desktop rate.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>The Foundation Is Strong &mdash; The Infrastructure Needs to Match.</strong> Forty years of reputation, 100+ golf course relationships, an authorized E-Z-GO dealership, and 176 real lead events per month. What's missing is the website architecture to build authority, measure accurately, and convert the demand that's already been earned. The current platform creates a ceiling &mdash; the fix is a new build designed around how buyers search and shop for golf carts.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== KEY FINDINGS ===== -->
+<section id="findings" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">02 &mdash; Key Findings at a Glance</div>
+    <h2 class="section-title">Summary of Main Findings</h2>
+    <p class="section-desc">Before diving into the detail, here's a summary of the main findings:</p>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <table class="data-table">
+        <thead><tr><th>Finding</th><th>Annual Impact</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Blog traffic attracting non-buyer audience</td><td class="num-amber">~6,500 sessions, 2 conversions</td></tr>
+          <tr><td class="label">Google Ads conversion setup counting non-lead actions</td><td class="num-red">56% of reported conversions aren't form submissions</td></tr>
+          <tr><td class="label">SEO: 11% keyword coverage, avg position 27.5</td><td class="num-red">Invisible for 89% of buyer-intent searches</td></tr>
+          <tr><td class="label">Email marketing: 3,749 sessions, 18 conversions</td><td class="num-amber">0.5% conversion rate</td></tr>
+          <tr><td class="label">Facebook/Meta paid: ~5,000 sessions, ~26 conversions</td><td class="num-amber">Budget producing 0.5% conversion rate</td></tr>
+          <tr><td class="label">163 sessions landing on sold-inventory pages</td><td class="num-amber">Interested buyers reaching dead ends</td></tr>
+          <tr><td class="label">No phone call tracking</td><td class="num-red">Significant lead channel completely invisible</td></tr>
+          <tr><td class="label">Mobile conversion gap (2.3% vs 5.8% desktop)</td><td class="num-red">58% of traffic on lower-converting device</td></tr>
+          <tr><td class="label">$700+ in branded search spend (organic covers this)</td><td class="num-amber">Budget that could reach new customers</td></tr>
+          <tr><td class="label">Alternate domain not resolving (lakeeriegolfcarts.com)</td><td class="num-amber">Potential visitors hitting DNS errors</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Data sources:</strong> All findings from GA4 (property 303859409), Google Ads (account 956-094-7517), and Google Search Console. See Appendix for full methodology.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== GA4 & SITE ANALYTICS ===== -->
+<section id="analytics" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">03 &mdash; GA4 &amp; Site Analytics</div>
+    <h2 class="section-title">Data Sources &amp; Traffic Overview</h2>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Data Sources: Getting to One Source of Truth</h3>
+      <p>There are <strong>four GA4 properties</strong> set up for the site &mdash; a common situation when tracking gets added at different times. Only one (303859409) has conversion events configured. The other three are either inactive or missing conversion setup.</p>
+      <table class="data-table">
+        <thead><tr><th>Property ID</th><th>Name</th><th>Status</th><th>Conversions</th></tr></thead>
+        <tbody>
+          <tr><td class="num">303859409</td><td class="label">Lake Erie Golf Cars - GA4</td><td>Active &mdash; only source with conversions</td><td class="num-green">2,110</td></tr>
+          <tr><td class="num">386706864</td><td>Lake Erie Golf Cars Dot Com - GA4</td><td>Active &mdash; zero conversions configured</td><td>0</td></tr>
+          <tr><td class="muted-row">322546298</td><td>lakeeriegolfcars.com</td><td>Inactive &mdash; no data</td><td>0</td></tr>
+          <tr><td class="muted-row">322536857</td><td>lakeeriegolfcars.net</td><td>Inactive &mdash; no data</td><td>0</td></tr>
+        </tbody>
+      </table>
+      <p>This is housekeeping &mdash; not a crisis. The right property (303859409) is collecting all the data. The fix is toggling the extra properties off so there's one clean source of truth.</p>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Traffic Overview (March 2025 &ndash; March 2026)</h3>
+      <table class="data-table">
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Sessions</td><td class="num">58,329</td></tr>
+          <tr><td class="label">Total Users</td><td class="num">40,437</td></tr>
+          <tr><td class="label">New Users</td><td class="num">36,751</td></tr>
+          <tr><td class="label">Pageviews</td><td class="num">132,109</td></tr>
+          <tr><td class="label">Bounce Rate</td><td class="num-amber">34.5%</td></tr>
+          <tr><td class="label">Engagement Rate</td><td class="num-green">65.5%</td></tr>
+          <tr><td class="label">Conversions (form submissions + service/parts requests)</td><td class="num">2,110</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">58,329</div>
+      <div class="stat-label">Annual Sessions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2,110</div>
+      <div class="stat-label">Conversions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number amber">~176</div>
+      <div class="stat-label">Leads / Month</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number green">65.5%</div>
+      <div class="stat-label">Engagement Rate</div>
+    </div>
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>The issue isn't traffic volume &mdash; it's where that traffic goes.</strong> A significant portion of these 58K sessions are landing on blog content about golf songs and celebrity golfers. Those visitors aren't shopping for golf carts. The site has a traffic mix that skews toward non-buyers.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CONVERSIONS ===== -->
+<section id="conversions" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">04 &mdash; Conversion Events</div>
+    <h2 class="section-title">What Those 2,110 Conversions Were</h2>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Conversion Events Detail</h3>
+      <table class="data-table">
+        <thead><tr><th>Event</th><th>Total Events</th><th>Unique Users</th><th>Conversions</th><th>Monthly Avg</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Contact Us</td><td>1,047</td><td>720</td><td class="num">909</td><td>~76</td></tr>
+          <tr><td class="label">Parts Request</td><td>512</td><td>373</td><td class="num">467</td><td>~39</td></tr>
+          <tr><td class="label">Parts &amp; Accessories</td><td>433</td><td>291</td><td class="num">370</td><td>~31</td></tr>
+          <tr><td class="label">Service Request</td><td>386</td><td>311</td><td class="num">364</td><td>~30</td></tr>
+          <tr class="row-total"><td class="label">Total</td><td>2,378</td><td>&mdash;</td><td class="num">2,110</td><td>~176</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>176 leads per month is real demand.</strong> Worth noting: the parts business (Parts Request + Parts &amp; Accessories = ~69 leads/month) has a national addressable market &mdash; unlike vehicle sales, parts can ship anywhere in the US. That's an opportunity the site architecture doesn't currently capture.
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Monthly Trend</h3>
+      <table class="data-table">
+        <thead><tr><th>Month</th><th>Sessions</th><th>Users</th><th>Conversions</th><th>Conv. Rate</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Apr 2025</td><td>6,026</td><td>5,021</td><td class="num">184</td><td>3.1%</td></tr>
+          <tr><td class="label">May 2025</td><td>5,172</td><td>4,155</td><td class="num">158</td><td>3.1%</td></tr>
+          <tr><td class="label">Jun 2025</td><td>5,457</td><td>4,494</td><td class="num">193</td><td>3.5%</td></tr>
+          <tr><td class="label">Jul 2025 (peak traffic)</td><td>6,489</td><td>5,060</td><td class="num">226</td><td>3.5%</td></tr>
+          <tr><td class="label">Aug 2025</td><td>5,366</td><td>4,172</td><td class="num">185</td><td>3.4%</td></tr>
+          <tr><td class="label">Sep 2025</td><td>7,595</td><td>4,306</td><td class="num">169</td><td>2.2%</td></tr>
+          <tr><td class="label">Oct 2025</td><td>5,879</td><td>2,208</td><td class="num">156</td><td>2.7%</td></tr>
+          <tr><td class="label">Nov 2025</td><td>3,853</td><td>3,017</td><td class="num">177</td><td>4.6%</td></tr>
+          <tr><td class="label">Dec 2025</td><td>1,959</td><td>1,577</td><td class="num-green">197</td><td class="num-green">10.1%</td></tr>
+          <tr><td class="label">Jan 2026</td><td>2,599</td><td>2,082</td><td class="num">149</td><td>5.7%</td></tr>
+          <tr><td class="label">Feb 2026</td><td>3,072</td><td>2,561</td><td class="num">141</td><td>4.6%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Conversions hold steady year-round (141&ndash;226/month) even when traffic drops 70% in winter.</strong> December traffic: 1,959 sessions. December conversions: 197. That's a 10.1% conversion rate &mdash; winter visitors are buyers, not browsers. Winter ad spend could be more aggressive given the higher conversion rates.
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Monthly Conversions by Event Type</h3>
+      <table class="data-table">
+        <thead><tr><th>Month</th><th>Contact Us</th><th>Parts Request</th><th>Parts &amp; Acc.</th><th>Service Req.</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Apr 2025</td><td>70</td><td>33</td><td>45</td><td>36</td><td class="num">184</td></tr>
+          <tr><td class="label">May 2025</td><td>73</td><td>26</td><td>33</td><td>26</td><td class="num">158</td></tr>
+          <tr><td class="label">Jun 2025</td><td>91</td><td>27</td><td>46</td><td>29</td><td class="num">193</td></tr>
+          <tr><td class="label">Jul 2025</td><td>107</td><td>27</td><td>46</td><td>46</td><td class="num">226</td></tr>
+          <tr><td class="label">Aug 2025</td><td>102</td><td>27</td><td>33</td><td>23</td><td class="num">185</td></tr>
+          <tr><td class="label">Sep 2025</td><td>87</td><td>23</td><td>38</td><td>21</td><td class="num">169</td></tr>
+          <tr><td class="label">Oct 2025</td><td>64</td><td>48</td><td>24</td><td>20</td><td class="num">156</td></tr>
+          <tr><td class="label">Nov 2025</td><td>66</td><td>65</td><td>17</td><td>29</td><td class="num">177</td></tr>
+          <tr><td class="label">Dec 2025</td><td>68</td><td>61</td><td>29</td><td>39</td><td class="num">197</td></tr>
+          <tr><td class="label">Jan 2026</td><td>64</td><td>42</td><td>14</td><td>29</td><td class="num">149</td></tr>
+          <tr><td class="label">Feb 2026</td><td>41</td><td>46</td><td>20</td><td>34</td><td class="num">141</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Seasonal patterns:</strong> Contact Us peaks in summer (Jul: 107, Aug: 102) when buying season is strongest. Parts Request spikes in winter (Nov: 65, Dec: 61) &mdash; customers winterizing carts or ordering replacement parts during the off-season. Service Request is steadiest year-round.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CHANNELS ===== -->
+<section id="channels" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">05 &mdash; Traffic Sources</div>
+    <h2 class="section-title">Where the Traffic Comes From &mdash; And What Converts</h2>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Traffic Sources by Channel</h3>
+      <table class="data-table">
+        <thead><tr><th>Channel</th><th>Sessions</th><th>Conversions</th><th>Conv. Rate</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Organic Search (Google)</td><td class="num">23,549</td><td class="num">780</td><td>3.3%</td></tr>
+          <tr><td class="label">Direct</td><td class="num">9,924</td><td class="num-green">620</td><td class="num-green">6.2%</td></tr>
+          <tr><td class="label">Paid Search (Google Ads)</td><td class="num">5,272</td><td class="num">253</td><td>4.8%</td></tr>
+          <tr><td class="label">Paid Social (Facebook)</td><td>4,574</td><td class="num-red">23</td><td class="num-red">0.5%</td></tr>
+          <tr><td class="label">Email (Dealer Spike AEM)</td><td>3,749</td><td class="num-red">18</td><td class="num-red">0.5%</td></tr>
+          <tr><td class="label">Cross-network (Google)</td><td>2,803</td><td class="num">124</td><td>4.4%</td></tr>
+          <tr><td class="label">Organic Search (Bing)</td><td>1,580</td><td class="num-green">100</td><td class="num-green">6.3%</td></tr>
+          <tr><td class="label">Organic Social (Facebook)</td><td>2,551</td><td class="num">40</td><td>1.6%</td></tr>
+        </tbody>
+      </table>
+      <p>Google organic and paid search are the strongest conversion channels. Bing organic at 6.3% is worth a look too. Direct traffic converting at 6.2% suggests strong brand recognition and repeat visitors.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>An important caveat on these numbers:</strong> As we'll cover in the Google Ads section, 56% of reported conversions across the account aren't actual form submissions. The true conversion rates for channels like Paid Search and Cross-network are likely different once duplicate and non-lead actions are filtered out.
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>What Each Channel's Conversions Actually Were</h3>
+      <table class="data-table">
+        <thead><tr><th>Channel</th><th>Contact Us</th><th>Parts Req.</th><th>Parts &amp; Acc.</th><th>Service Req.</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Organic Search</td><td>374</td><td>148</td><td>205</td><td>165</td><td class="num">892</td></tr>
+          <tr><td class="label">Direct</td><td>240</td><td>203</td><td>41</td><td>152</td><td class="num">636</td></tr>
+          <tr><td class="label">Paid Search</td><td>127</td><td>48</td><td>74</td><td class="num-red">15</td><td class="num">264</td></tr>
+          <tr><td class="label">Cross-network</td><td>89</td><td>11</td><td>14</td><td>14</td><td class="num">128</td></tr>
+          <tr><td class="label">Referral</td><td>24</td><td>17</td><td>13</td><td>3</td><td>57</td></tr>
+          <tr><td class="label">Organic Social</td><td>27</td><td>9</td><td>7</td><td>7</td><td>50</td></tr>
+          <tr><td class="label">Paid Social</td><td>14</td><td>6</td><td>4</td><td class="num-red">0</td><td class="num-red">24</td></tr>
+          <tr><td class="label">Email</td><td>6</td><td>5</td><td>6</td><td>6</td><td>23</td></tr>
+        </tbody>
+      </table>
+      <p><strong>What this tells us:</strong> Direct traffic drives a disproportionate share of Parts Requests (203 of 467 &mdash; 43%). These are likely repeat customers who know the URL and come directly to order parts. Organic Search leads in Contact Us (374) and Service Requests (165). Paid Search generates almost no Service Requests (15 of 264 &mdash; 6%), suggesting the paid campaigns are focused on sales-oriented keywords.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>104 sessions from AI platforms</strong> (ChatGPT: 57 sessions + 6 conversions, Perplexity: 14 sessions, Claude: 1 session, Gemini: 1 session). AI-driven referral traffic is already happening and will grow &mdash; something to keep an eye on.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== MOBILE ===== -->
+<section id="mobile" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">06 &mdash; Device Performance</div>
+    <h2 class="section-title">Mobile vs. Desktop Performance</h2>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number red">2.3%</div>
+      <div class="stat-label">Mobile Conv. Rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number green">5.8%</div>
+      <div class="stat-label">Desktop Conv. Rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number amber">58%</div>
+      <div class="stat-label">Traffic on Mobile</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">37%</div>
+      <div class="stat-label">Mobile Share of Conv.</div>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <table class="data-table">
+        <thead><tr><th>Device</th><th>Sessions</th><th>Conversions</th><th>Conv. Rate</th><th>Share of Traffic</th><th>Share of Conversions</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Desktop</td><td class="num">22,614</td><td class="num-green">1,305</td><td class="num-green">5.8%</td><td>39%</td><td class="num-green">62%</td></tr>
+          <tr><td class="label">Mobile</td><td class="num">33,573</td><td class="num-red">782</td><td class="num-red">2.3%</td><td>58%</td><td class="num-red">37%</td></tr>
+          <tr><td class="label">Tablet</td><td>1,574</td><td>23</td><td>1.5%</td><td>3%</td><td>1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout callout-red">
+    <strong>Mobile drives 58% of traffic but only 37% of conversions.</strong> Desktop converts at 2.5x the rate of mobile. Looking at the current mobile site, this gap isn't surprising &mdash; the site is not optimized for mobile. The layout, navigation, and form experience on a phone make it harder for visitors to take action.
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>What's Likely Happening</h3>
+      <p>Mobile visitors tend to be in research mode &mdash; browsing inventory, checking prices, comparing options. When they're ready to act, many will either call (which we can't track yet) or come back on a desktop to fill out a form. The mobile experience compounds this &mdash; multi-field forms are difficult to complete on a phone, there's no prominent click-to-call button, and mobile users who want to reach out have to navigate to a form page instead of just tapping to call.</p>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>The Opportunity</h3>
+      <p>This gap doesn't mean mobile visitors are lower quality &mdash; it means the mobile experience can be optimized to meet them where they are. Faster load times, simplified mobile forms, and a prominent click-to-call button are the typical fixes. Once phone call tracking is in place, we'd likely see that many of these "non-converting" mobile visitors are converting &mdash; just by phone instead of form.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== LANDING PAGES ===== -->
+<section id="pages" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">07 &mdash; Landing Pages</div>
+    <h2 class="section-title">Where Conversions Actually Happen</h2>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <table class="data-table">
+        <thead><tr><th>Landing Page</th><th>Sessions</th><th>Conversions</th><th>Conv. Rate</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Homepage</td><td class="num">18,896</td><td class="num">1,006</td><td>5.3%</td></tr>
+          <tr><td class="label">Parts Request Form</td><td>232</td><td class="num-green">204</td><td class="num-green">87.9%</td></tr>
+          <tr><td class="label">Contact Email Form</td><td>212</td><td class="num-green">198</td><td class="num-green">93.4%</td></tr>
+          <tr><td class="label">Service Request Form</td><td>198</td><td class="num-green">196</td><td class="num-green">99.0%</td></tr>
+          <tr><td class="label">Google Ads (Used Carts)</td><td>546</td><td>37</td><td>6.8%</td></tr>
+          <tr><td class="label">Google Ads (PMax)</td><td>510</td><td>35</td><td>6.9%</td></tr>
+          <tr><td class="label">Ohio Custom Golf Carts</td><td>348</td><td>32</td><td class="num-green">9.2%</td></tr>
+          <tr><td class="label">Service &amp; Repair</td><td>324</td><td>29</td><td>8.9%</td></tr>
+          <tr><td class="label">Parts Page</td><td>256</td><td>35</td><td class="num-green">13.7%</td></tr>
+          <tr><td class="label">Canfield Inventory</td><td>582</td><td>17</td><td>2.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>The homepage carries 48% of all conversions (1,006 of 2,110).</strong> That's one page doing half the work. This tells us visitors are landing on the homepage and converting from there because the site doesn't give them a more specific place to go. It's less a sign of a great homepage and more a signal that there aren't enough dedicated landing pages to match what people are looking for.
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>The Model &mdash; More Dedicated Pages</h3>
+      <p>Compare the homepage to dedicated pages: Ohio Custom Golf Carts converts at 9.2%, Service &amp; Repair at 8.9%, and Parts Page at 13.7%. When people land on a page built for their specific intent, they convert at nearly double the homepage rate. That's the model &mdash; more pages like these, each targeting a specific need. Think: a "New E-Z-GO Golf Carts" page for shoppers comparing models, a "Golf Cart Parts &amp; Accessories" page targeting national parts buyers, a "Golf Cart Battery Replacement" page for service customers, and location-specific inventory pages for Cleveland and Canfield.</p>
+      <p><strong>Worth highlighting for the LEGC team:</strong> The Ohio Custom Golf Carts page is converting at 9.2% from just 348 sessions. That's strong performance for a niche page, and it suggests demand for custom golf carts specifically.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== BLOG ===== -->
+<section id="blog" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">08 &mdash; Blog Traffic</div>
+    <h2 class="section-title">An Audience Mismatch</h2>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <table class="data-table">
+        <thead><tr><th>Blog Page</th><th>Sessions</th><th>Conversions</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Most Exclusive Golf Courses</td><td class="num">2,263</td><td>1</td></tr>
+          <tr><td class="label">Best Golf Songs</td><td class="num">1,650</td><td class="num-red">0</td></tr>
+          <tr><td class="label">Gas Golf Car Engine Overview</td><td class="num">1,102</td><td>1</td></tr>
+          <tr><td class="label">Which State Has Most Golf Courses</td><td>954</td><td class="num-red">0</td></tr>
+          <tr><td class="label">Celebrity Golfers</td><td>499</td><td class="num-red">0</td></tr>
+          <tr class="row-total"><td class="label">Blog Total</td><td class="num">~6,468</td><td class="num-red">2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number red">~6,500</div>
+      <div class="stat-label">Blog Sessions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">2</div>
+      <div class="stat-label">Blog Conversions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">0.03%</div>
+      <div class="stat-label">Blog Conv. Rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number amber">~11%</div>
+      <div class="stat-label">Of Total Traffic</div>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>The Analysis</h3>
+      <p>6,468 sessions. 2 conversions. This is one of the clearest findings in the data &mdash; and also one of the most actionable. The blog isn't broken. It ranks well in Google. The issue is it ranks for entertainment queries &mdash; people researching golf songs, famous golfers, and exclusive courses. Those visitors aren't shopping for golf carts.</p>
+      <p>The one exception proves the point: "Gas Golf Car Engine Overview" is the only post about the actual product, and it ranks at position 8.7 with 1,102 clicks. That's what commercial blog content looks like &mdash; articles that attract people who are researching golf carts, not people making playlists.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>The fix:</strong> redirect the blog strategy toward buyer-intent topics. Posts like "Gas vs Electric Golf Carts: Which Is Right for You?" or "How Much Does a Golf Cart Cost in 2026?" would attract the same kind of search traffic but from people who are in the market.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== GOOGLE ADS AUDIT ===== -->
+<section id="ads-audit" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">09 &mdash; Google Ads Audit</div>
+    <h2 class="section-title">The Measurement Gap</h2>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">$18,285</div>
+      <div class="stat-label">Total Spend</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">858</div>
+      <div class="stat-label">Reported Conversions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number green">377</div>
+      <div class="stat-label">GA4 Verified</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">56%</div>
+      <div class="stat-label">Aren't Real Leads</div>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Reported vs. Verified</h3>
+      <table class="data-table">
+        <thead><tr><th>Metric</th><th>Google Ads Reports</th><th>GA4 Verified</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Total Spend</td><td class="num">$18,285</td><td>&mdash;</td></tr>
+          <tr><td class="label">Clicks</td><td class="num">10,896</td><td>&mdash;</td></tr>
+          <tr><td class="label">Conversions Reported</td><td class="num-red">858</td><td class="num-green">377</td></tr>
+          <tr><td class="label">Cost/Conversion (reported)</td><td>$21.31</td><td>&mdash;</td></tr>
+          <tr><td class="label">Cost/Conversion (actual)</td><td>&mdash;</td><td class="num-amber">$48.50</td></tr>
+          <tr><td class="label">Avg. CPC</td><td class="num">$1.68</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+      <p>There's a significant gap between what Google Ads reports as conversions (858) and what we can verify as actual form submissions through GA4 (377). That's a 56% difference &mdash; 481 of those reported conversions are not real form submissions.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-red">
+    <strong>Why this matters in plain terms:</strong> Google Ads uses an automated bidding system called "Smart Bidding" &mdash; it automatically decides who sees ads and how much to pay per click based on who it thinks will convert. When the system believes 858 people converted, it learns from all 858 to find more people like them. But if only 377 of those were real form submissions, the system is learning from 481 signals that aren't real leads. It's a bit like a GPS that counts every stop sign as "you've arrived" &mdash; it starts routing you to intersections instead of destinations.
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>What Google Is Counting as a "Conversion"</h3>
+      <p>The account has 36 configured conversion actions. 11 of them count toward the Conversions metric that Smart Bidding optimizes against. Here's the breakdown:</p>
+      <p><strong>Real Lead Actions</strong> &mdash; someone filled out a form on the website:</p>
+      <table class="data-table">
+        <thead><tr><th>Action</th><th>How It's Tracked</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Submit lead form (1)</td><td>Webpage form tracking</td></tr>
+          <tr><td class="label">Submit lead form (2)</td><td>Webpage form tracking</td></tr>
+          <tr><td class="label">Request quote</td><td>Webpage form tracking</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1.5rem"><strong>Auto-Tracked Actions</strong> &mdash; actions Google counts as conversions but aren't someone reaching out:</p>
+      <table class="data-table">
+        <thead><tr><th>Action</th><th>What It Actually Is</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Smart campaign map clicks to call</td><td>Someone clicked the phone number on the Google Maps listing &mdash; not necessarily a call</td></tr>
+          <tr><td class="label">Smart campaign map directions</td><td>Someone asked for driving directions &mdash; just looking for the address</td></tr>
+          <tr><td class="label">Store visits</td><td>Google's estimate of how many ad viewers visited the store &mdash; modeled, not measured</td></tr>
+          <tr><td class="label">Calls from Smart Campaign Ads</td><td>Auto-tracked by Google, but we can't verify these were real conversations</td></tr>
+          <tr><td class="label">Calls from ads</td><td>Tracked via ad call extension, but unverified duration or outcome</td></tr>
+          <tr><td class="label">Contact Us (UA Goal)</td><td>Legacy tracking from an old Google Analytics system that's been retired</td></tr>
+          <tr><td class="label">Purchase (GA4)</td><td>An event that was set up but removed &mdash; still counts, sends no data</td></tr>
+          <tr><td class="label">Purchase (lakeeriegolfcars.com)</td><td>Same &mdash; removed event, still counted</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem">The 3 real lead actions and 8 auto-tracked actions all count equally in Google's optimization. The algorithm doesn't know the difference &mdash; it just tries to get more of whatever is counted as a conversion.</p>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Branded Search: A Quick Win</h3>
+      <p>One quick opportunity: the search terms report shows the business name appearing as a paid keyword across several campaigns.</p>
+      <table class="data-table">
+        <thead><tr><th>Search Term</th><th>Combined Spend (Annual)</th><th>Campaigns Appearing In</th></tr></thead>
+        <tbody>
+          <tr><td class="label">lake erie golf cars</td><td class="num-amber">$179</td><td>New Golf Carts Search</td></tr>
+          <tr><td class="label">lake erie golf carts</td><td class="num-amber">$350+</td><td>Liberty, New Carts, Used Carts, RXV, All Canfield</td></tr>
+          <tr><td class="label">lake erie golf cart</td><td class="num-amber">$184+</td><td>New Carts, Liberty, Used Carts, RXV</td></tr>
+        </tbody>
+      </table>
+      <p>Combined: about $700 per year on branded terms. These are people already searching for Lake Erie Golf Cars by name &mdash; they'd find the site organically. Redirecting this spend to buyer-intent keywords would put those dollars toward reaching new customers instead.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CAMPAIGNS ===== -->
+<section id="campaigns" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">10 &mdash; Campaign Performance</div>
+    <h2 class="section-title">Campaign Breakdown &amp; Structure</h2>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Campaign Performance</h3>
+      <p>There are two types of Google Ads campaigns running here:</p>
+      <ul>
+        <li><strong>Search campaigns:</strong> You choose specific keywords (like "new golf carts for sale"). When someone searches those words, your ad appears at the top of Google's search results. You have direct control over which searches trigger your ads.</li>
+        <li><strong>Performance Max (PMax):</strong> You provide Google with a budget, images, and headlines. Google's AI then decides where to show your ads &mdash; search results, YouTube, Gmail, Google Maps, and more. The upside is broader reach. The tradeoff is less control.</li>
+      </ul>
+      <table class="data-table" style="margin-top:1.5rem">
+        <thead><tr><th>Campaign</th><th>Type</th><th>Spend</th><th>Clicks</th><th>Conv. (reported)</th><th>CPC</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Used Golf Carts PMax</td><td>PMax</td><td class="num">$4,157</td><td>4,075</td><td class="num-amber">352.8</td><td>$1.02</td></tr>
+          <tr><td class="label">Liberty Search</td><td>Search</td><td class="num">$2,416</td><td>1,218</td><td>96.3</td><td>$1.98</td></tr>
+          <tr><td class="label">E-Z-GO RXV 4</td><td>Search</td><td class="num">$2,382</td><td>1,037</td><td>65.6</td><td>$2.30</td></tr>
+          <tr><td class="label">New Golf Carts Search</td><td>Search</td><td class="num">$2,091</td><td>1,100</td><td>108.4</td><td>$1.90</td></tr>
+          <tr><td class="label">New Golf Carts Search Camp</td><td>Search (Paused)</td><td class="num">$1,836</td><td>932</td><td>53.3</td><td>$1.97</td></tr>
+          <tr><td class="label">Used Golf Carts Search</td><td>Search (Paused)</td><td class="num">$1,652</td><td>1,286</td><td>101.2</td><td>$1.28</td></tr>
+          <tr><td class="label">Express 6 Passenger</td><td>Search</td><td class="num">$1,462</td><td>456</td><td>40.8</td><td>$3.21</td></tr>
+          <tr><td class="label">Express 4 Search</td><td>Search</td><td class="num">$1,164</td><td>354</td><td>22.7</td><td>$3.29</td></tr>
+          <tr><td class="label">All Canfield Inventory</td><td>Search (Paused)</td><td class="num">$1,126</td><td>438</td><td>16.9</td><td>$2.57</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem"><strong>Industry context:</strong> According to 2025 WordStream benchmarks, the average CPC for automotive "For Sale" campaigns is $2.41, and the average cost per lead is $38.86. Lake Erie's CPC of $1.68 is below the industry average, which is positive. However, the actual cost per verified lead ($48.50) is above the benchmark, which points back to the conversion measurement gap rather than a campaign performance issue.</p>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>What We See in the Campaign Structure</h3>
+      <ol class="numbered-list">
+        <li><strong>"New Golf Carts Search" and "New Golf Carts Search Camp"</strong> are two campaigns with combined spend of $3,927 that target overlapping keywords. When two campaigns in the same account go after the same searches, Google enters both into the same auction. Only one can show, but the learning data and budget get split between them instead of being consolidated. Merging these into one campaign gives the algorithm more data to work with.</li>
+        <li><strong>The PMax campaign reports 352.8 conversions on $4,157 spend.</strong> Based on what we found about the conversion setup &mdash; where only 3 of 11 counted actions are actual form submissions &mdash; a significant portion of that 352.8 number includes auto-tracked actions like map clicks and store visit estimates. PMax served ads for queries like "golf courses near me," "putt putt in cleveland," and "ohio state parks with rv camping" &mdash; searches from people who aren't shopping for golf carts.</li>
+        <li><strong>Express 6 and Express 4 are separate campaigns</strong> with higher CPCs ($3.21&ndash;$3.29) and lower volume. Consolidating these into one campaign with model-specific ad groups would give Google more data to optimize with.</li>
+        <li><strong>14 paused campaigns</strong> from 2021&ndash;2022 (Boat Show, RV Fest, HBA Home Garden Show) are still in the account. Not actively spending, but worth cleaning up for clarity.</li>
+        <li><strong>Some ad spend goes to competitor and unrelated brand terms</strong> that aren't producing conversions &mdash; for example, "willandale golf cart sales" ($103.65, 0 conversions) and "ohio custom carts" ($151+, 0 conversions). Adding these as negative keywords would redirect that spend to terms that are converting.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== SEARCH VISIBILITY ===== -->
+<section id="seo" class="animate-in">
+  <div class="section-header">
+    <div class="section-label">11 &mdash; Search Visibility</div>
+    <h2 class="section-title">Where You Stand in Google</h2>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">14,133</div>
+      <div class="stat-label">Organic Clicks</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2.46M</div>
+      <div class="stat-label">Impressions</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number red">0.57%</div>
+      <div class="stat-label">Organic CTR</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number amber">27.5</div>
+      <div class="stat-label">Avg Position</div>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>The Big Picture</h3>
+      <table class="data-table">
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Total Organic Clicks</td><td class="num">14,133</td></tr>
+          <tr><td class="label">Total Impressions</td><td class="num">2,462,889</td></tr>
+          <tr><td class="label">Overall Organic CTR</td><td class="num-red">0.57%</td></tr>
+          <tr><td class="label">Average Position</td><td class="num-amber">27.5</td></tr>
+          <tr><td class="label">Buyer-Intent Keywords Ranked on Page 1</td><td class="num-red">3 of 27 (11%)</td></tr>
+        </tbody>
+      </table>
+      <p>To put this in context: we identified 27 keywords that people use when they're actively shopping for golf carts &mdash; searches like "golf carts for sale near me," "used golf carts," and "golf cart dealers near me." Lake Erie ranks on page 1 of Google for only 3 of those 27 keywords. The average position across all of them is 27.5, which is roughly page 3.</p>
+      <p>Google is already showing Lake Erie's pages for these searches &mdash; 2.4 million times in the past year. It's testing whether the pages belong in the results. But at position 27 (page 3), the click-through rate is 0.57%. Almost nobody scrolls that far. The site is showing up &mdash; it just needs to show up higher.</p>
+    </div>
+  </div>
+
+  <div class="content-block card">
+    <div class="card-body">
+      <h3>Where Organic Traffic Actually Goes</h3>
+      <table class="data-table">
+        <thead><tr><th>Traffic Category</th><th>Clicks</th><th>Conversions</th><th>Conv. Rate</th></tr></thead>
+        <tbody>
+          <tr><td class="label">Blog / Entertainment Content</td><td class="num-red">~5,800</td><td class="num-red">2</td><td class="num-red">0.03%</td></tr>
+          <tr><td class="label">Inventory &amp; Product Pages</td><td class="num">~3,980</td><td class="num-green">1,037</td><td class="num-green">26.0%</td></tr>
+          <tr><td class="label">Homepage (blended)</td><td class="num">2,410</td><td class="num">1,006</td><td>5.3%</td></tr>
+        </tbody>
+      </table>
+      <p>About 41% of organic traffic goes to blog posts about golf songs, celebrity golfers, and exclusive golf courses &mdash; entertainment content that generated 2 conversions in 12 months. Meanwhile, inventory and product pages convert at 26% when someone finds them. The pages work. The challenge is that most of these pages sit at position 27+ in Google, so very few people find them organically.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>The opportunity is clear:</strong> the product and inventory pages convert at 26% &mdash; they just need to rank higher. That's a site architecture and SEO problem, not a conversion problem. A new build with proper page structure, schema markup, and buyer-intent content would move these pages from page 3 to page 1.
+  </div>
+</section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">Lake Erie Golf Cars &mdash; Online Visibility Benchmark</div>
+  <p>Prepared by Mileage Design &mdash; March 2026</p>
+  <p>Confidential &mdash; Prepared exclusively for Dan Connor &amp; Nick Reif, Owners | Joseph Powell, Digital Marketing Manager</p>
+</footer>
+
+<script>
+// Scroll animations
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08 });
+document.querySelectorAll('.animate-in').forEach(el => obs.observe(el));
+
+// Active nav tracking
+const navLinks = document.querySelectorAll('.nav a');
+const sections = [];
+navLinks.forEach(a => {
+  const id = a.getAttribute('href').replace('#','');
+  const el = document.getElementById(id);
+  if (el) sections.push({ el, link: a });
+});
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 150;
+  let current = sections[0];
+  sections.forEach(s => { if (s.el.offsetTop <= scrollY) current = s; });
+  navLinks.forEach(a => a.classList.remove('active'));
+  if (current) current.link.classList.add('active');
+});
+</script>
+
+</body>
+</html>
