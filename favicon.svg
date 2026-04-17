@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Wheels -->
+  <circle cx="8" cy="26" r="4.5" fill="none" stroke="#2E75F7" stroke-width="2"/>
+  <circle cx="8" cy="26" r="1.2" fill="#2E75F7"/>
+  <circle cx="24" cy="26" r="4.5" fill="none" stroke="#2E75F7" stroke-width="2"/>
+  <circle cx="24" cy="26" r="1.2" fill="#2E75F7"/>
+  <!-- Axle -->
+  <line x1="8" y1="26" x2="24" y2="26" stroke="#2E75F7" stroke-width="1.5"/>
+  <!-- Body -->
+  <path d="M5 21.5 L5 14 L20 14 L22 21.5" fill="none" stroke="#2E75F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Roof -->
+  <path d="M7 14 L9 5 L21 5 L19 14" fill="none" stroke="#2E75F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Roof post -->
+  <line x1="20" y1="14" x2="21" y2="5" stroke="#2E75F7" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Seat -->
+  <line x1="12" y1="17" x2="18" y2="17" stroke="#2E75F7" stroke-width="2" stroke-linecap="round"/>
+  <!-- Rear extension -->
+  <line x1="22" y1="21.5" x2="27" y2="21.5" stroke="#2E75F7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="21.5" x2="27" y2="24" stroke="#2E75F7" stroke-width="2" stroke-linecap="round"/>
+</svg>
